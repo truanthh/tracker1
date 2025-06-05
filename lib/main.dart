@@ -27,8 +27,8 @@ class ScrollView extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          Month(),
-          Month(),
+          Month(monthName: "May", daysAmount: 31),
+          Month(monthName: "June", daysAmount: 30),
         ],
       ),
     );

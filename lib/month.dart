@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 import 'close_dialog.dart';
 
 class Month extends StatefulWidget {
-  const Month({super.key});
+  final String monthName;
+  final int daysAmount;
+
+  // const Month({super.key});
+  const Month({
+    required this.monthName,
+    required this.daysAmount,
+    Key? key,
+  }) : super(key: key);
 
   // bla
   State<Month> createState() => _MonthState();
@@ -35,7 +43,7 @@ class _MonthState extends State<Month> {
     return Column(
       children: [
         Text(
-          'bla',
+          widget.monthName,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 8),
@@ -46,7 +54,7 @@ class _MonthState extends State<Month> {
             crossAxisCount: 7,
             childAspectRatio: 0.5,
           ),
-          itemCount: 31,
+          itemCount: widget.daysAmount,
           itemBuilder: (context, index) {
             int row = index ~/ 7;
             int col = index % 7;
